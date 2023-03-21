@@ -1,0 +1,120 @@
+{
+  "layer": "top",
+  "position": "left",
+  "width": 50,
+  "modules-left": [
+    "clock",
+    "sway/workspaces"
+  ],
+  
+  "modules-center": [
+    "battery",
+    "pulseaudio",
+    "memory",
+    "cpu",
+    "sway/mode"
+  ],
+  
+  "modules-right": [
+    "tray",
+    "keyboard-state"
+  ],
+  "backlight": {
+    "device": "acpi_video1",
+    "format": "<span size='large'>{icon}</span>",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "battery": {
+    "states": {
+      "notice": 30,
+      "warning": 20,
+      "critical": 10
+    },
+    "format": "<span size='xx-large'>{icon}</span>",
+    "format-charging": "<span size='small'></span>",
+    "format-plugged": "<span size='xx-large'></span>",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "tooltip-format": "{timeTo} | {capacity}%"
+  },
+  "clock": {
+    "format": "{:%H\n%M}",
+    "tooltip": true,
+    "tooltip-format": "{:%a, %x}",
+    "on-click": "exec notify-send 'hello' 'hi again'"
+  },
+  "cpu": {
+    "format": "<span size='x-large'>{icon}</span>",
+    "format-icons": [
+      ""
+    ],
+    "states": {
+      "warning": 90,
+      "critical": 95
+    },
+    "on-click": "alacritty -t btop -e btop"
+  },
+  "keyboard-state": {
+    "numlock": true,
+    "format": "{name}",
+    "format-icons": {
+      "locked": "",
+      "unlocked": ""
+    }
+  },
+  "memory": {
+    "format": "<span size='large'></span>",
+    "states": {
+      "warning": 90,
+      "critical": 95
+    },
+    "on-click": "alacritty -t btop -e btop"
+  },
+  "pulseaudio": {
+    "format": "<span size='large'>{icon}</span>",
+    "format-bluetooth": "<span size='large'>{icon}</span>",
+    "format-bluetooth-muted": " ﱝ",
+    "format-muted": "<span size='large'>ﱝ</span>",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "וֹ",
+      "headset": "  ",
+      "phone": "",
+      "portable": "",
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "tooltip-format": "{desc}",
+    "on-click": "pavucontrol"
+  },
+  "tray": {
+    "icon-size": 24,
+    "spacing": 10,
+    "show-passive-items": true
+  },
+  "sway/workspaces": {
+    "all-outputs": true,
+    "format": "{index}",
+    "disable-scroll": true
+  }
+}

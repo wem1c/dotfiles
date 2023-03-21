@@ -1,0 +1,222 @@
+/*
+	Catpuccin Theme Colors
+	https://github.com/catppuccin/catppuccin
+*/
+/* Latte Accent Colors*/
+@define-color ctp-latte-rosewater #de9584;
+@define-color ctp-latte-flamingo #dd7878;
+@define-color ctp-latte-pink #ec83d0;
+@define-color ctp-latte-mauve #8839ef;
+@define-color ctp-latte-red #d20f39;
+@define-color ctp-latte-maroon #e64553;
+@define-color ctp-latte-peach #fe640b;
+@define-color ctp-latte-yellow #e49320;
+@define-color ctp-latte-green #40a02b;
+@define-color ctp-latte-teal #179299;
+@define-color ctp-latte-sky #04a5e5;
+@define-color ctp-latte-sapphire #209fb5;
+@define-color ctp-latte-blue #2a6ef5;
+@define-color ctp-latte-lavender #7287fd;
+
+/* Animations */
+@keyframes blink-warning {
+  to {
+    color: @ctp-latte-rosewater;
+  }
+}
+
+@keyframes blink-critical {
+  to {
+    color: @ctp-latte-red;
+  }
+}
+
+
+/*
+	Main
+*/
+* {
+  margin: 0;
+  font-family: "MesloLGS NF";
+  font-size: 16px;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+
+window#waybar {
+  padding-right: 30px;
+  color: black;
+  background: rgba(255, 255, 255, 0.75);
+}
+
+tooltip {
+  /* glassmorphism */
+  background: white;
+  border: 1.5px solid black;
+}
+tooltip label {
+}
+
+
+/*
+	Modules
+*/
+#battery {
+  padding: 0px 5px;
+  margin: 3px;
+
+  /* glassmorphism */
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  border-color: @ctp-latte-lavender;
+
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  color: @ctp-latte-lavender;
+  font-size: 18px;
+}
+
+#battery.charging {
+  background: rgba(0, 255, 0, 0.75);
+}
+
+#battery.notice:not(.charging) {
+  background: rgba(255, 255, 0, 0.75);
+}
+
+#battery.warning:not(.charging) {
+  background: rgba(255, 190, 0, 0.75);
+}
+
+#battery.critical:not(.charging) {
+  background: rgba(255, 0, 0, 0.75);
+}
+
+#clock {
+  margin: 3px;
+  padding: 5px 15px;
+
+  /* glassmorphism */
+  background: rgba(255, 255, 255, 0.75);
+  border: 1.5px solid rgba(0, 0, 0, 0.18);
+  border-color: black;
+
+  font-weight: bold;
+  font-size: 16px;
+  color: black;
+}
+
+#cpu {
+  padding: 2px 0px;
+  margin: 3px;
+
+  /* glassmorphism */
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  border-color: @ctp-latte-lavender;
+
+  font-size: 18px;
+  color: @ctp-latte-lavender;
+}
+
+#cpu.warning {
+  background: rgba(255, 190, 0, 0.75);
+}
+
+#cpu.critical {
+  background: rgba(255, 0, 0, 0.75);
+}
+
+#keyboard-state {
+  padding: 5px;
+  margin: 3px;
+  color: lightgray;
+
+  /* glassmorphism */
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+}
+
+#keyboard-state label.numlock.locked {
+  color: @ctp-latte-green;
+}
+
+#memory {
+  padding: 5px 5px;
+  margin: 3px;
+
+  /* glassmorphism */
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  border-color: @ctp-latte-sapphire;
+
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  color: @ctp-latte-sapphire;
+  font-size: 18px;
+}
+
+#memory.warning {
+  background: rgba(255, 190, 0, 0.75);
+}
+
+#memory.critical {
+  background: rgba(255, 0, 0, 0.75);
+}
+
+#pulseaudio {
+  padding: 5px 5px;
+  margin: 3px;
+
+  /* glassmorphism */
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  border-color: @ctp-latte-teal;
+
+  color: @ctp-latte-teal;
+  font-size: 18px;
+}
+
+#tray {
+  margin: 3px;
+  padding: 5px 10px;
+
+  /* glassmorphism */
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+}
+
+#workspaces button {
+  font-weight: bold;
+  padding: 10px 0px;
+  margin: 3px;
+
+  /* glassmorphism */
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  border-color: black;
+}
+
+#workspaces button.focused {
+  background: slategray;
+  color: white;
+}
+
+#workspaces button.urgent {
+  color: @ctp-latte-maroon;
+  animation: blink-warning;
+  animation-duration: 1s;
+}
