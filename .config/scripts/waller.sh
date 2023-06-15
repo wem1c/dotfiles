@@ -9,16 +9,36 @@ debecho() {
     fi
 }
 
+optspec=":dh"
+while getopts "$optspec" optchar; do
+    case "${optchar}" in
+        d)
+        	echo "DEBUGGING ENABLED!"
+        	DEBUG=1
+        	;;
+        h)
+			echo "Usage: $0 [OPTION]...
+			
+Grab the top upvoted wallpaper of the day from r/wallpapers.
+            
+	-d		enable debugging
+	-h		display this help and exit
+
+Made by Conor C. Peterson (conorpetersondev@gmail.com)
+"
+            exit 2
+            ;;
+        *)
+            echo "usage: $0 [-d] [-h]" >&2
+            exit 3
+            ;;
+    esac
+done
+
 # dbus bus address for notify-send
 BUS_ADDRESS="unix:path=/run/user/1000/bus"
 SOURCE_URL="https://www.reddit.com/r/wallpaper/top/"
 DESTINATION_FILE="/home/conor/Pictures/wallpapers/wallpaper"
-
-# Check if the script is being run with --debug flag
-if [ "$1" = "DEBUG=on" ]; then
-    echo "DEBUGGING ENABLED!"
-    DEBUG=1
-fi
 
 # Notify script is started
 env DBUS_SESSION_BUS_ADDRESS=$BUS_ADDRESS notify-send 'Waller engaged!' "Grabbing today's top wallpaper on r/wallpapers" --icon=dialog-information
