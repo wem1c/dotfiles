@@ -19,22 +19,8 @@
     "tray",
     "keyboard-state"
   ],
-  "backlight": {
-    "device": "acpi_video1",
-    "format": "<span size='large'>{icon}</span>",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
-    ]
-  },
   "battery": {
+    "interval": 30,
     "states": {
       "notice": 30,
       "warning": 20,
