@@ -31,7 +31,6 @@
   }
 }
 
-
 /*
 	Main
 */
@@ -43,58 +42,52 @@
 body {
   -webkit-font-smoothing: antialiased;
 }
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
 window#waybar {
   padding-right: 30px;
   color: black;
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 1);
 }
 
 tooltip {
-  /* glassmorphism */
   background: white;
   border: 1.5px solid black;
 }
-tooltip label {
-}
 
-
-/*
-	Modules
-*/
+/**
+ * MODULES
+ */
 #battery {
   padding: 0px 5px;
   margin: 3px;
 
-  /* glassmorphism */
-  background: rgba(255, 255, 255, 0.75);
-  border-radius: 10px;
-  border: 1.5px solid rgba(255, 255, 255, 0.18);
-  border-color: @ctp-latte-lavender;
-
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-  color: @ctp-latte-lavender;
-  font-size: 18px;
+
+  font-size: 20px;
 }
 
 #battery.charging {
-  background: rgba(0, 255, 0, 0.75);
+  color: rgba(0, 255, 0, 0.75);
 }
 
 #battery.notice:not(.charging) {
-  background: rgba(255, 255, 0, 0.75);
+  color: rgba(255, 255, 0, 0.75);
 }
 
 #battery.warning:not(.charging) {
-  background: rgba(255, 190, 0, 0.75);
+  color: rgba(255, 190, 0, 0.75);
 }
 
 #battery.critical:not(.charging) {
+  /* TODO: animation */
   background: rgba(255, 0, 0, 0.75);
 }
 
@@ -102,13 +95,9 @@ tooltip label {
   margin: 3px;
   padding: 5px 15px;
 
-  /* glassmorphism */
-  background: rgba(255, 255, 255, 0.75);
-  border: 1.5px solid rgba(0, 0, 0, 0.18);
-  border-color: black;
-
-  font-weight: bold;
-  font-size: 16px;
+  font-family: monospace;
+  font-weight: 600;
+  font-size: 18px;
   color: black;
 }
 
@@ -116,103 +105,79 @@ tooltip label {
   padding: 2px 0px;
   margin: 3px;
 
-  /* glassmorphism */
-  background: rgba(255, 255, 255, 0.75);
-  border-radius: 10px;
-  border: 1.5px solid rgba(255, 255, 255, 0.18);
-  border-color: @ctp-latte-lavender;
-
-  font-size: 18px;
-  color: @ctp-latte-lavender;
+  font-size: 20px;
 }
 
 #cpu.warning {
-  background: rgba(255, 190, 0, 0.75);
+  color: rgba(255, 190, 0, 0.75);
 }
 
 #cpu.critical {
-  background: rgba(255, 0, 0, 0.75);
+  /* TODO: animate */
+  color: rgba(255, 0, 0, 0.75);
+}
+
+#disk.warning {
+	color: rgba(255, 190, 0, 0.75);
+}
+
+#disk.critical {
+	color: rgba(255, 0, 0, 0.75);
 }
 
 #keyboard-state {
   padding: 5px;
   margin: 3px;
-  color: lightgray;
 
-  /* glassmorphism */
-  background: rgba(255, 255, 255, 0.75);
-  border-radius: 10px;
-  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  font-weight: 600;
+  color: #a3a3a3;
 }
 
 #keyboard-state label.numlock.locked {
-  color: @ctp-latte-green;
+  color: #14b8a6;
 }
 
 #memory {
   padding: 5px 5px;
   margin: 3px;
 
-  /* glassmorphism */
-  background: rgba(255, 255, 255, 0.75);
-  border-radius: 10px;
-  border: 1.5px solid rgba(255, 255, 255, 0.18);
-  border-color: @ctp-latte-sapphire;
-
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-  color: @ctp-latte-sapphire;
-  font-size: 18px;
+
+  font-size: 20px;
 }
 
 #memory.warning {
-  background: rgba(255, 190, 0, 0.75);
+  color: rgba(255, 190, 0, 0.75);
 }
 
 #memory.critical {
-  background: rgba(255, 0, 0, 0.75);
+  color: rgba(255, 0, 0, 0.75);
 }
 
 #pulseaudio {
   padding: 5px 5px;
   margin: 3px;
 
-  /* glassmorphism */
-  background: rgba(255, 255, 255, 0.75);
-  border-radius: 10px;
-  border: 1.5px solid rgba(255, 255, 255, 0.18);
-  border-color: @ctp-latte-teal;
-
-  color: @ctp-latte-teal;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 #tray {
   margin: 3px;
   padding: 5px 10px;
-
-  /* glassmorphism */
-  background: rgba(255, 255, 255, 0.75);
-  border-radius: 10px;
-  border: 1.5px solid rgba(255, 255, 255, 0.18);
 }
 
 #workspaces button {
-  font-weight: bold;
   padding: 10px 0px;
   margin: 3px;
 
-  /* glassmorphism */
-  background: rgba(255, 255, 255, 0.75);
   border-radius: 10px;
-  border: 1.5px solid rgba(255, 255, 255, 0.18);
-  border-color: black;
+  border: 2px solid rgba(0, 0, 0, 1);
 }
 
 #workspaces button.focused {
-  background: slategray;
-  color: white;
+  background: rgb(0, 255, 221);
 }
 
 #workspaces button.urgent {
