@@ -1,35 +1,7 @@
-/*
-	Catpuccin Theme Colors
-	https://github.com/catppuccin/catppuccin
-*/
-/* Latte Accent Colors*/
-@define-color ctp-latte-rosewater #de9584;
-@define-color ctp-latte-flamingo #dd7878;
-@define-color ctp-latte-pink #ec83d0;
-@define-color ctp-latte-mauve #8839ef;
-@define-color ctp-latte-red #d20f39;
-@define-color ctp-latte-maroon #e64553;
-@define-color ctp-latte-peach #fe640b;
-@define-color ctp-latte-yellow #e49320;
-@define-color ctp-latte-green #40a02b;
-@define-color ctp-latte-teal #179299;
-@define-color ctp-latte-sky #04a5e5;
-@define-color ctp-latte-sapphire #209fb5;
-@define-color ctp-latte-blue #2a6ef5;
-@define-color ctp-latte-lavender #7287fd;
-
-/* Animations */
-@keyframes blink-warning {
-  to {
-    color: @ctp-latte-rosewater;
-  }
-}
-
-@keyframes blink-critical {
-  to {
-    color: @ctp-latte-red;
-  }
-}
+/* Colors */
+@define-color yellow #fde047;
+@define-color orange #fb923c;
+@define-color red #ef4444;
 
 /*
 	Main
@@ -79,16 +51,16 @@ tooltip {
 }
 
 #battery.notice:not(.charging) {
-  color: rgba(255, 255, 0, 0.75);
+  color: @yellow;
 }
 
 #battery.warning:not(.charging) {
-  color: rgba(255, 190, 0, 0.75);
+  color: @orange;
 }
 
 #battery.critical:not(.charging) {
   /* TODO: animation */
-  background: rgba(255, 0, 0, 0.75);
+  background: @red;
 }
 
 #clock {
@@ -109,20 +81,20 @@ tooltip {
 }
 
 #cpu.warning {
-  color: rgba(255, 190, 0, 0.75);
+  color: @orange;
 }
 
 #cpu.critical {
   /* TODO: animate */
-  color: rgba(255, 0, 0, 0.75);
+  color: @red;
 }
 
 #disk.warning {
-	color: rgba(255, 190, 0, 0.75);
+  color: @orange;
 }
 
 #disk.critical {
-	color: rgba(255, 0, 0, 0.75);
+  color: @red;
 }
 
 #keyboard-state {
@@ -149,11 +121,11 @@ tooltip {
 }
 
 #memory.warning {
-  color: rgba(255, 190, 0, 0.75);
+  color: @orange;
 }
 
 #memory.critical {
-  color: rgba(255, 0, 0, 0.75);
+  color: @red;
 }
 
 #pulseaudio {

@@ -16,7 +16,7 @@
 	font = "/usr/share/fonts/TTF/FiraCode-Regular.ttf"
 
 	# Point size of text.
-	font-size = 20
+	font-size = 16
 
 	# Comma separated list of OpenType font feature settings to apply,
 	# if supported by the chosen font. The format is similar to the CSS
