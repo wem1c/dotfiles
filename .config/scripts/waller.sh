@@ -15,12 +15,12 @@ SOURCES=("reddit")
 SOURCE="reddit"
 while getopts "$OPTSPEC" optchar; do
     case "${optchar}" in
-        d)
-            echo "DEBUGGING ENABLED!"
-            DEBUG=1
-            ;;
-        h)
-            echo "Usage: $0 [OPTION]...
+    d)
+        echo "DEBUGGING ENABLED!"
+        DEBUG=1
+        ;;
+    h)
+        echo "Usage: $0 [OPTION]...
             
 Grab the top upvoted wallpaper of the day from r/wallpapers.
             
@@ -30,26 +30,26 @@ Grab the top upvoted wallpaper of the day from r/wallpapers.
             
 Made by Conor C. Peterson (conorpetersondev@gmail.com)
 "
-            exit 1
-            ;;
-        s)
-            source_name=${OPTARG}
-            if [[ " ${SOURCES[*]} " == *" ${source_name} "* ]]; then
-                SOURCE=${source_name}
-            else
-                echo "Invalid source specified. Available options: ${SOURCES[*]}"
-                exit 2
-            fi
-            ;;
-        c)
-        	echo "Cleaning up residual files.."
-        	rm main.html log.txt wp.html log_wp.html
-        	exit 3
-        	;;
-        *)
-            echo "usage: $0 [-d] [-h] [-s SOURCE]" >&2
-            exit 4
-            ;;
+        exit 1
+        ;;
+    s)
+        source_name=${OPTARG}
+        if [[ " ${SOURCES[*]} " == *" ${source_name} "* ]]; then
+            SOURCE=${source_name}
+        else
+            echo "Invalid source specified. Available options: ${SOURCES[*]}"
+            exit 2
+        fi
+        ;;
+    c)
+        echo "Cleaning up residual files.."
+        rm main.html log.txt wp.html log_wp.html
+        exit 3
+        ;;
+    *)
+        echo "usage: $0 [-d] [-h] [-s SOURCE]" >&2
+        exit 4
+        ;;
     esac
 done
 
@@ -60,25 +60,24 @@ SWAY_BACKGROUND_FILE="/home/conor/Pictures/wallpapers/wallpaper"
 
 # Grab SOURCE url
 case "${SOURCE}" in
-        reddit)
-            echo "Setting source to: reddit.."
-            SOURCE_URL="https://www.reddit.com/r/wallpaper/top/"
-            ;;
-    esac
-
+reddit)
+    echo "Setting source to reddit.."
+    SOURCE_URL="https://www.reddit.com/r/wallpaper/top/"
+    ;;
+esac
 
 # Notify script is started
 env DBUS_SESSION_BUS_ADDRESS=$BUS_ADDRESS notify-send 'Waller engaged!' "Grabbing wallpaper from ${SOURCE}" --icon=dialog-information
 
 # Download main html
-wget "$SOURCE_URL" -O main.html -o log.txt
+curl "$SOURCE_URL" -o main.html
 
 # Save the top post's link to a variable
-post_link="$(grep -o '<a href="/r/wallpaper/comments/\w*/\w*' main.html | awk 'BEGIN {FS="/"} NR==1 {print "https://www.reddit.com/r/wallpaper/comments/"$5"/"$6}')"
+post_link="$(grep -o '<a href="/r/wallpaper/comments/\w*/\w*' main.html | awk 'BEGIN {FS="/"} NR==1 {print "https://www.reddit.com/r/wallpaper/comments/"$5"/"$6"/"}')"
 debecho "Post link: $post_link"
 
 # Download the post's html
-wget "$post_link" -O wp.html -o log_wp.html
+curl "$post_link" -o wp.html
 
 # Pull image link from html
 image_link="$(grep -Eo 'https:/{2}i\.redd\.it/\w+\.[a-z]{3}' wp.html | head -n 1)"
@@ -95,17 +94,17 @@ output_file="$DESTINATION_PATH$filename"
 debecho "output_file: $output_file"
 
 # Download the image and save to $output_file
-wget "$image_link" -O $output_file
+curl "$image_link" -o "$output_file"
 
 # Sway on Wayland requires running swaybg to change background dynamically
 # that leaves a running process in the background, which I dislike.
 # The way I work around it is by just setting the static file /wallapers/wallpaper
-# as a background in sway's config files. 
-wget "$image_link" -O $SWAY_BACKGROUND_FILE
+# as a background in sway's config files.
+curl "$image_link" -o $SWAY_BACKGROUND_FILE
 
 # Cleanup if not debugging
 if [ -z "$DEBUG" ]; then
-    rm main.html log.txt wp.html log_wp.html
+    rm main.html wp.html "$output_file"
 fi
 
 # Notify script ended
