@@ -108,7 +108,7 @@
 	selection-background-corner-radius = 5
 
 	# Matching portion of selection text
-	selection-match-color = #b58900
+	selection-match-color = #d3a10d
 
 
 #
