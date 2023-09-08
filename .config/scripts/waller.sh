@@ -1,14 +1,29 @@
 #! /usr/bin/bash
 
-## This script grabs the top wallpaper of the day from r/wallpaper!
+# This script grabs the top wallpaper of the day from r/wallpaper!
 
-### Will echo passed parameters only if DEBUG is set to a value. ###
+# Function to notify errors and exit with a specific status code
+notify_error() {
+    local message="$1"
+    env DBUS_SESSION_BUS_ADDRESS="$BUS_ADDRESS" notify-send 'Waller encountered an error!' "$message" --icon=dialog-error
+    exit 1
+}
+
+# Function to clean up temporary files
+cleanup() {
+    rm main.html wp.html "$output_file"
+}
+
+# Will echo passed parameters only if DEBUG is set to a value. ###
 debecho() {
     if [ -n "$DEBUG" ]; then
         echo "DEBUG: $1" >&2
         echo ""
     fi
 }
+
+# Trap to clean up on script exit (success or error)
+trap cleanup EXIT
 
 OPTSPEC=":dhs:c"
 SOURCES=("reddit")
@@ -70,14 +85,18 @@ esac
 env DBUS_SESSION_BUS_ADDRESS=$BUS_ADDRESS notify-send 'Waller engaged!' "Grabbing wallpaper from ${SOURCE}" --icon=dialog-information
 
 # Download main html
-curl "$SOURCE_URL" -o main.html
+if ! curl -f "$SOURCE_URL" -L -o main.html; then
+    notify_error "Failed to download main HTML"
+fi
 
 # Save the top post's link to a variable
 post_link="$(grep -o '<a href="/r/wallpaper/comments/\w*/\w*' main.html | awk 'BEGIN {FS="/"} NR==1 {print "https://www.reddit.com/r/wallpaper/comments/"$5"/"$6"/"}')"
 debecho "Post link: $post_link"
 
 # Download the post's html
-curl "$post_link" -o wp.html
+if ! curl -f "$post_link" -L -o wp.html; then
+    notify_error "Failed to download post HTML"
+fi
 
 # Pull image link from html
 image_link="$(grep -Eo 'https:/{2}i\.redd\.it/\w+\.[a-z]{3}' wp.html | head -n 1)"
@@ -94,17 +113,16 @@ output_file="$DESTINATION_PATH$filename"
 debecho "output_file: $output_file"
 
 # Download the image and save to $output_file
-curl "$image_link" -o "$output_file"
+if ! curl -f "$image_link" -o "$output_file"; then
+    notify_error "Failed to download image"
+fi
 
 # Sway on Wayland requires running swaybg to change background dynamically
 # that leaves a running process in the background, which I dislike.
 # The way I work around it is by just setting the static file /wallapers/wallpaper
 # as a background in sway's config files.
-curl "$image_link" -o $SWAY_BACKGROUND_FILE
-
-# Cleanup if not debugging
-if [ -z "$DEBUG" ]; then
-    rm main.html wp.html "$output_file"
+if ! curl -f "$image_link" -o "$SWAY_BACKGROUND_FILE"; then
+    notify_error "Failed to set sway background"
 fi
 
 # Notify script ended
