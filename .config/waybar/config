@@ -19,7 +19,7 @@
     "keyboard-state"
   ],
   "battery": {
-    "interval": 30,
+    "interval": 15,
     "states": {
       "notice": 30,
       "warning": 20,
@@ -51,7 +51,8 @@
       "warning": 90,
       "critical": 95
     },
-    "on-click": "alacritty -t btop -e btop"
+    "on-click": "alacritty -t btop -e btop",
+    "interval": 5
   },
   "disk": {
   	"format": "<span size='xx-large'></span>",
@@ -74,7 +75,8 @@
       "warning": 90,
       "critical": 95
     },
-    "on-click": "alacritty -t btop -e btop"
+    "on-click": "alacritty -t btop -e btop",
+    "interval": 15
   },
   "pulseaudio": {
     "format": "<span size='large'>{icon}</span>",
