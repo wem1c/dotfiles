@@ -51,6 +51,7 @@
 	#
 	# All text defaults to this color if not otherwise specified.
 	text-color = #657b83
+	text-background-corner-radius = 10
 
 	# All pieces of text have the same theming attributes available:
 	#
