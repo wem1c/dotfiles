@@ -22,6 +22,12 @@ debecho() {
     fi
 }
 
+# Check if there is internet connectivity;
+# Return 0 if there is, otherwise return 1
+check_internet() {
+    ping -c 1 google.com &> /dev/null && return 0 || return 1
+}
+
 # Trap to clean up on script exit (success or error)
 trap cleanup EXIT
 
@@ -68,9 +74,16 @@ Made by Conor C. Peterson (conorpetersondev@gmail.com)
     esac
 done
 
-# dbus bus address for notify-send
+# define dbus bus address for notify-send
 BUS_ADDRESS="unix:path=/run/user/1000/bus"
+
+# define the connectivity check timeout (in miliseconds)
+TIMEOUT_SECONDS=60
+
+# define the wallpaper folder destination path
 DESTINATION_PATH="/home/conor/Pictures/wallpapers/"
+
+# define the wallpaper path
 SWAY_BACKGROUND_FILE="/home/conor/Pictures/wallpapers/wallpaper"
 
 # Grab SOURCE url
@@ -83,6 +96,27 @@ esac
 
 # Notify script is started
 env DBUS_SESSION_BUS_ADDRESS=$BUS_ADDRESS notify-send 'Waller engaged!' "Grabbing wallpaper from ${SOURCE}" --icon=dialog-information
+
+# Get the current time
+start_time=$(date +%s)
+
+# Wait for internet connectivity
+echo "Waiting for internet connectivity..."
+while ! check_internet; do
+    sleep 5
+
+    # Check if the timeout has been reached
+    current_time=$(date +%s)
+    elapsed_time=$((current_time - start_time))
+
+    if [ $elapsed_time -ge $TIMEOUT_SECONDS ]; then
+        echo "Timeout reached. Internet connection not available after $TIMEOUT_SECONDS seconds."
+        exit 1
+    fi
+done
+
+# Continue with the rest of your script
+echo "Internet is now available. Continuing with the script..."
 
 # Download main html
 if ! curl -f "$SOURCE_URL" -L -o main.html; then
