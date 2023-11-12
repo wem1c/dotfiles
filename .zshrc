@@ -20,7 +20,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
-### CUSTOM SETTINGS
+# CUSTOM SETTINGS
+
 ## Aliases
 alias ls="exa -lh"
 alias sudo="sudo "
@@ -29,10 +30,10 @@ alias pacdiff="DIFFPROG=delta pacdiff"
 alias arch-rankmirrors="sudo reflector --protocol https --verbose --latest 25 --sort rate --save /etc/pacman.d/mirrorlist"
 alias eos-rankmirrors="eos-rankmirrors --sort rate"
 
-# pip
+### pip
 alias pir='pip install -r requirements.txt'
 
-# Django
+### Django
 alias dj="python manage.py"
 alias djrs="python manage.py runserver"
 alias djsh="python manage.py shell"
@@ -41,7 +42,7 @@ alias djmm="python manage.py makemigrations"
 alias djmmm="python manage.py makemigrations & python manage.py migrate"
 alias djcd="python manage.py check --deploy"
 
-# systemctl
+### systemctl
 alias sc="systemctl"
 alias scsr="systemctl start"
 alias scsp="systemctl stop"
@@ -50,6 +51,17 @@ alias sce="systemctl enable"
 alias scen="systemctl enable --now"
 alias scd="systemctl disable"
 alias scs="systemctl status"
+
+### npm/pnpm
+alias nrd="npm run dev"
+alias nrb="npm run build"
+alias nrs="npm run start"
+alias nrl="npm run lint"
+
+alias prd="pnpm run dev"
+alias prb="pnpm run build"
+alias prs="pnpm run start"
+alias prl="pnpm run lint"
 
 ## Environment Variables
 export BAT_THEME=OneHalfLight
@@ -83,3 +95,11 @@ eval "$(starship init zsh)"
 
 ## Load FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# pnpm
+export PNPM_HOME="/home/conor/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
