@@ -37,5 +37,5 @@ wait_for_internet() {
     fi
   done
 
-  echo "Internet is now available."
+  echo "Internet connectivity confirmed."
 }
