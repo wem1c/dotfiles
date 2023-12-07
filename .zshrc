@@ -23,12 +23,12 @@ export NVM_DIR="$HOME/.nvm"
 # CUSTOM SETTINGS
 
 ## Aliases
-alias ls="exa -lh"
+alias ls="eza -lh"
 alias sudo="sudo "
 alias dotfiles="/usr/bin/env git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-alias pacdiff="DIFFPROG=delta pacdiff"
-alias arch-rankmirrors="sudo reflector --protocol https --verbose --latest 25 --sort rate --save /etc/pacman.d/mirrorlist"
-alias eos-rankmirrors="eos-rankmirrors --sort rate"
+#alias pacdiff="DIFFPROG=delta pacdiff"
+#alias arch-rankmirrors="sudo reflector --protocol https --verbose --latest 25 --sort rate --save /etc/pacman.d/mirrorlist"
+#alias eos-rankmirrors="eos-rankmirrors --sort rate"
 
 ### pip
 alias pir='pip install -r requirements.txt'
@@ -64,6 +64,9 @@ alias prs="pnpm run start"
 alias prl="pnpm run lint"
 
 ## Environment Variables
+
+export MICRO_TRUECOLOR=1
+
 export BAT_THEME=OneHalfLight
 
 # Preview file content using bat (https://github.com/sharkdp/bat)
@@ -83,7 +86,7 @@ bindkey ';5C' forward-word
 bindkey ';6D' beginning-of-line
 bindkey ';6C' end-of-line
 
-# Kitty
+### Kitty
 bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;7C' end-of-line
