@@ -1,0 +1,52 @@
+# Inserts a blank line between shell prompts
+add_newline = false
+
+# Defines the format of the prompt. $all shows all possible modules - it can be extended by defining additional modules after it (modules will not be duplicated)
+format="$all$sudo$username$directory$nodejs$character"
+right_format = "$cmd_duration"
+
+
+## DISABLED MODULES ##
+[line_break]
+disabled = true
+
+[package]
+disabled = true
+
+[battery]
+disabled = true
+
+
+## MODULE CONFIG ##
+# The character module shows a character (usually an arrow) beside where the text is entered in your terminal.
+[character]                            # The name of the module we are configuring is "character"
+success_symbol = "[](bold bright-green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+error_symbol = "[ﲅ](bold bright-red) "
+
+# The cmd_duration module shows how long the last command took to execute.
+[cmd_duration]
+format = " took [$duration]($style) "
+
+# The directory module shows the path to your current directory
+[directory]
+style = "bold bright-blue"
+fish_style_pwd_dir_length = 3
+
+# The sudo module displays if sudo credentials are currently cached.
+[sudo]
+format = "[$symbol]($style) "
+style = "bold bright-yellow"
+symbol = "sudo"
+disabled = false
+
+# The username module shows active user's username.
+[username]
+style_user = "black bold"
+style_root = "bright-yellow bold"
+format = "[$user]($style) "
+disabled = false
+show_always = true
+
+# The nodejs module shows the currently installed version of Node.js
+[nodejs]
+format = "[ $version](bold green) "
