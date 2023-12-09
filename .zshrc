@@ -25,7 +25,6 @@ export NVM_DIR="$HOME/.nvm"
 ## Aliases
 alias ls="eza -lh"
 alias sudo="sudo "
-alias dotfiles="/usr/bin/env git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 #alias pacdiff="DIFFPROG=delta pacdiff"
 #alias arch-rankmirrors="sudo reflector --protocol https --verbose --latest 25 --sort rate --save /etc/pacman.d/mirrorlist"
 #alias eos-rankmirrors="eos-rankmirrors --sort rate"
@@ -62,6 +61,13 @@ alias prd="pnpm run dev"
 alias prb="pnpm run build"
 alias prs="pnpm run start"
 alias prl="pnpm run lint"
+
+### dotfiles 
+alias dotfiles="/usr/bin/env git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias ds="dotfiles status"
+alias da="dotfiles add"
+alias dc="dotfiles commit -m"
+alias dp="dotfiles push"
 
 ## Environment Variables
 
