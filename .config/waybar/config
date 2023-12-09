@@ -4,15 +4,14 @@
   "width": 50,
   "modules-left": [
     "clock",
-    "sway/workspaces"
+    "hyprland/workspaces"
   ],
   "modules-center": [
     "battery",
-    "pulseaudio",
+    "wireplumber",
     "cpu",
     "memory",
     "disk",
-    "sway/mode"
   ],
   "modules-right": [
     "tray",
