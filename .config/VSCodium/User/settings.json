@@ -10,7 +10,7 @@
   "terminal.integrated.confirmOnExit": "hasChildProcesses",
   "terminal.integrated.cursorBlinking": true,
   "explorer.confirmDelete": false,
-  "editor.fontFamily": "'FiraCode NF Mono', 'monospace', monospace, 'Font Awesome 6',",
+  "editor.fontFamily": "'FiraMono Nerd Font Mono', 'Font Awesome 6 Free', 'monospace', monospace,,",
   "css.lint.unknownAtRules": "ignore",
   "scss.lint.unknownAtRules": "ignore",
   "editor.linkedEditing": true,
@@ -117,5 +117,9 @@
     "azcli"
   ],
   "editor.insertSpaces": false,
-  "importCost.fontStyle": "oblique"
+  "importCost.fontStyle": "oblique",
+  "terminal.integrated.fontFamily": "FiraMono Nerd Font Mono",
+  "debug.console.fontSize": 16,
+  "terminal.integrated.fontSize": 16,
+  "chat.editor.fontSize": 16
 }
