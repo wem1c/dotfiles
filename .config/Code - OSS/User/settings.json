@@ -1,0 +1,123 @@
+{
+  "workbench.colorTheme": "Better Solarized Light",
+  "workbench.colorCustomizations": {
+    "editor.selectionBackground": "#93a1a1a1"
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "terminal.integrated.confirmOnExit": "hasChildProcesses",
+  "terminal.integrated.cursorBlinking": true,
+  "explorer.confirmDelete": false,
+  "editor.fontFamily": "'MesloLGS NF', 'Font Awesome 6', 'monospace', monospace",
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore",
+  "editor.linkedEditing": true,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "editor.tabCompletion": "on",
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format",
+    "editor.tabSize": 2
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "explorer.confirmDragAndDrop": false,
+  "prettier.jsxSingleQuote": true,
+  "[dotenv]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[ignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "editor.fontSize": 16,
+  "[python]": {
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true
+  },
+  "files.associations": {
+    "**/*.html": "html",
+    "**/templates/**/*.html": "django-html",
+    "**/templates/**/*": "django-txt",
+    "**/requirements{/**,*}.{txt,in}": "pip-requirements"
+  },
+  "refactai.apiKey": "x5tZm4ga9aKjc4f31GJ9caMR",
+  "files.autoSave": "off",
+  "html.format.templating": true,
+  "[django-html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": true,
+      "strings": true
+    }
+  },
+  "emmet.includeLanguages": {
+    "django-html": "html"
+  },
+  "editor.minimap.enabled": false,
+  "[lua]": {
+    "editor.defaultFormatter": "sumneko.lua"
+  },
+  "git.enableSmartCommit": true,
+  "sqlite.setupDatabase": {},
+  "redhat.telemetry.enabled": false,
+  "[properties]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "workbench.iconTheme": "bearded-icons",
+  "css.enabledLanguages": ["html", "nunjucks"],
+  "[njk]": {
+    "editor.defaultFormatter": "eseom.nunjucks-template"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
+  "headwind.classRegex": {
+    "jade": [
+      {
+        "regex": "\\.([\\._a-zA-Z0-9\\-]+)",
+        "separator": "\\.",
+        "replacement": "."
+      },
+      "\\bclass\\s*=\\s*[\\\"\\']([\\._a-zA-Z0-9\\s\\-\\:\\/]+)[\\\"\\']"
+    ],
+    "html": "\\bclass\\s*=\\s*[\\\"\\']([\\._a-zA-Z0-9\\s\\-\\:\\/]+)[\\\"\\']",
+    "css": "\\B@apply\\s+([\\._a-zA-Z0-9\\s\\-\\:\\/]+);",
+    "javascript": [
+      "(?:\\b(?:class(?:Name)?|tw)\\s*=\\s*(?:(?:{([\\w\\d\\s!?_\\-:/${}()[\\]\"'`,]+)})|([\"'`][\\.\\w\\d\\s_\\-:/]+[\"'`])))",
+      "(?:[\"'`]([\\.\\w\\d\\s_\\-:/${}()[\\]]+)[\"'`])"
+    ],
+    "javascriptreact": [
+      "(?:\\b(?:class(?:Name)?|tw)\\s*=\\s*(?:(?:{([\\w\\d\\s!?_\\-:/${}()[\\]\"'`,]+)})|([\"'`][\\w\\d\\s_\\-:/]+[\"'`])))",
+      "(?:[\"'`]([\\.\\w\\d\\s_\\-:/${}()[\\]]+)[\"'`])"
+    ],
+    "typescript": [
+      "(?:\\b(?:class(?:Name)?|tw)\\s*=\\s*(?:(?:{([\\w\\d\\s!?_\\-:/${}()[\\]\"'`,]+)})|([\"'`][\\w\\d\\s_\\-:/]+[\"'`])))",
+      "(?:[\"'`]([\\.\\w\\d\\s_\\-:/${}()[\\]]+)[\"'`])"
+    ],
+    "typescriptreact": [
+      "(?:\\b(?:class(?:Name)?|tw)\\s*=\\s*(?:(?:{([\\w\\d\\s!?_\\-:/${}()[\\]\"'`,]+)})|([\"'`][\\w\\d\\s_\\-:/]+[\"'`])))",
+      "(?:[\"'`]([\\.\\w\\d\\s_\\-:/${}()[\\]]+)[\"'`])"
+    ]
+  },
+  "aws.suppressPrompts": {
+    "codeWhispererNewWelcomeMessage": true
+  },
+  "refactai.pauseCompletion": false,
+  "shellformat.flag": "-i 2 -ci -bn -s",
+  "shellformat.effectLanguages": [
+    "shellscript",
+    "dockerfile",
+    "dotenv",
+    "hosts",
+    "jvmoptions",
+    "ignore",
+    "gitignore",
+    "properties",
+    "spring-boot-properties",
+    "azcli"
+  ],
+  "editor.insertSpaces": false
+}
