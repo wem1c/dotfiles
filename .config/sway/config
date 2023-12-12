@@ -1,0 +1,6 @@
+# user config directory
+include $HOME/.config/sway/config.d/*
+
+# Needed by wob() (graphical bar for audio/brightness/etc)
+set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
+exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob

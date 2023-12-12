@@ -1,0 +1,24 @@
+## SYSTEM
+# Auth with polkit-gnome:
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# GTK3 applications take a long time to start
+exec systemctl --user import-environment
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+# Network Applet
+exec nm-applet --indicator
+
+# Bluetooth applet
+exec blueman-applet
+
+# Desktop notifications
+exec mako
+
+## UTILITY
+# gammastep (redshift)
+exec gammastep-indicator
+
+# autotiling script (swaps between split-h/split-v depending on window size)
+exec_always autotiling
