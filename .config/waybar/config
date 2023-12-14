@@ -1,7 +1,6 @@
 {
   "layer": "top",
   "position": "left",
-  "width": 50,
   "modules-left": [
     "clock",
     "hyprland/workspaces"
@@ -11,9 +10,10 @@
     "wireplumber",
     "cpu",
     "memory",
-    "disk",
+    "disk"
   ],
   "modules-right": [
+    "network",
     "tray",
     "keyboard-state"
   ],
@@ -25,8 +25,8 @@
       "critical": 10
     },
     "format": "<span size='x-large'>{icon}</span>",
-    "format-charging": "<span size='small'></span>",
-    "format-plugged": "<span size='xx-large'></span>",
+    "format-charging": "<span size='x-large'></span>",
+    "format-plugged": "<span size='x-large'></span>",
     "format-icons": [
       "",
       "",
@@ -37,12 +37,27 @@
   },
   "clock": {
     "format": "{:%H\n%M}",
-    "tooltip": true,
-    "tooltip-format": "{:%a, %x}",
-    "on-click": "exec notify-send 'hello' 'hi again'"
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-click-right": "mode",
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
   },
   "cpu": {
-    "format": "<span size='large'>{icon}</span>",
+    "format": "<span size='xx-large'>{icon}</span>",
     "format-icons": [
       ""
     ],
@@ -50,15 +65,16 @@
       "warning": 90,
       "critical": 95
     },
-    "on-click": "alacritty -t btop -e btop",
+    "on-click": "kitty --detach btop",
     "interval": 5
   },
   "disk": {
-  	"format": "<span size='xx-large'></span>",
-  	"states": {
-  		"warning": "80",
-  		"critical":"90"
-  		},
+    "interval": "60",
+    "format": "<span size='xx-large'></span>",
+    "states": {
+      "warning": "80",
+      "critical": "90"
+    }
   },
   "keyboard-state": {
     "numlock": true,
@@ -69,44 +85,36 @@
     }
   },
   "memory": {
-    "format": "<span size='large'></span>",
+    "format": "<span size='x-large'></span>",
     "states": {
       "warning": 90,
       "critical": 95
     },
-    "on-click": "alacritty -t btop -e btop",
+    "on-click": "kitty --detach btop",
     "interval": 15
   },
-  "pulseaudio": {
-    "format": "<span size='large'>{icon}</span>",
-    "format-bluetooth": "<span size='large'>{icon}</span>",
-    "format-bluetooth-muted": " ﱝ",
-    "format-muted": "<span size='large'>ﱝ</span>",
-    "format-source": " {volume}%",
-    "format-source-muted": "",
-    "format-icons": {
-      "headphone": "",
-      "hands-free": "וֹ",
-      "headset": "  ",
-      "phone": "",
-      "portable": "",
-      "default": [
-        "",
-        "",
-        ""
-      ]
-    },
-    "tooltip-format": "{desc}",
-    "on-click": "pavucontrol"
+  "network": {
+    "format-wifi": "",
+    "format-ethernet": "",
+    "format-disconnected": "X",
+    "tooltip-format": "via {gwaddr} 󰊗",
+    "tooltip-format-wifi": "{essid} |   {signalStrength}% | {ipaddr}",
+    "tooltip-format-ethernet": "{ipaddr}/{cidr}",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "kitty --detach nmtui"
   },
   "tray": {
     "icon-size": 24,
     "spacing": 10,
     "show-passive-items": true
   },
-  "sway/workspaces": {
-    "all-outputs": true,
-    "format": "{index}",
-    "disable-scroll": true
+  "wireplumber": {
+    "format": "<span size='x-large'>{icon}</span>",
+    "format-muted": "",
+    "format-icons": [
+      "",
+      "",
+      ""
+    ]
   }
 }

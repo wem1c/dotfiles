@@ -1,53 +1,43 @@
-/* Colors */
-@define-color yellow #fde047;
-@define-color orange #fb923c;
-@define-color red #ef4444;
+@import url("./colors.css");
 
-/*
-	Main
-*/
+/**
+ * Main
+ */
 * {
+  border: none;
+  border-radius: 0;
   margin: 0;
-  font-family: Roboto, Helvetica, Arial, sans-serif, FontAwesome;
+  font-family: "DejaVu Sans Mono", "Font Awesome 6 Free", monospace;
   font-size: 16px;
-}
-body {
-  -webkit-font-smoothing: antialiased;
-}
-input,
-button,
-textarea,
-select {
-  font: inherit;
+  min-height: 0;
 }
 
 window#waybar {
-  padding-right: 30px;
-  color: black;
-  background: rgba(255, 255, 255, 1);
+  color: @foreground;
+  background: @background;
+  border: 3px solid @hypr;
+  border-radius: 10px;
 }
 
 tooltip {
-  background: white;
-  border: 1.5px solid black;
+  background: @foreground;
+  border: 1.5px solid @background;
+}
+
+tooltip label {
+  color: @background;
 }
 
 /**
- * MODULES
+ * INDIVIDUAL MODULES
  */
+
 #battery {
-  padding: 0px 5px;
-  margin: 3px;
-
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-
-  font-size: 20px;
+  margin: 5px 0;
 }
 
 #battery.charging {
-  color: rgba(0, 255, 0, 0.75);
+  color: @green;
 }
 
 #battery.notice:not(.charging) {
@@ -59,25 +49,17 @@ tooltip {
 }
 
 #battery.critical:not(.charging) {
-  /* TODO: animation */
   background: @red;
 }
 
 #clock {
-  margin: 3px;
-  padding: 5px 15px;
-
   font-family: monospace;
   font-weight: 600;
-  font-size: 18px;
-  color: black;
+  font-size: 20px;
 }
 
 #cpu {
-  padding: 2px 0px;
-  margin: 3px;
-
-  font-size: 20px;
+  margin: 5px 0px;
 }
 
 #cpu.warning {
@@ -85,8 +67,11 @@ tooltip {
 }
 
 #cpu.critical {
-  /* TODO: animate */
   color: @red;
+}
+
+#disk {
+  margin: 5px 0;
 }
 
 #disk.warning {
@@ -98,9 +83,6 @@ tooltip {
 }
 
 #keyboard-state {
-  padding: 5px;
-  margin: 3px;
-
   font-weight: 600;
   color: #a3a3a3;
 }
@@ -110,14 +92,7 @@ tooltip {
 }
 
 #memory {
-  padding: 5px 5px;
-  margin: 3px;
-
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-
-  font-size: 20px;
+  margin: 5px 0;
 }
 
 #memory.warning {
@@ -128,32 +103,31 @@ tooltip {
   color: @red;
 }
 
-#pulseaudio {
-  padding: 5px 5px;
-  margin: 3px;
-
-  font-size: 20px;
+#network {
+  margin: 5px 0;
 }
 
-#tray {
-  margin: 3px;
-  padding: 5px 10px;
+/* #tray {
+  
+} */
+
+#wireplumber {
+  margin: 5px 0;
 }
 
 #workspaces button {
-  padding: 10px 0px;
-  margin: 3px;
-
   border-radius: 10px;
-  border: 2px solid rgba(0, 0, 0, 1);
+  background: @foreground;
+  color: @background;
+
+  padding: 15px 15px;
+  margin: 3px 8px;
 }
 
-#workspaces button.focused {
-  background: rgb(0, 255, 221);
+#workspaces button.active {
+  background: @hypr;
 }
 
 #workspaces button.urgent {
-  color: @ctp-latte-maroon;
-  animation: blink-warning;
-  animation-duration: 1s;
+  border-bottom: 2px solid @red;
 }
