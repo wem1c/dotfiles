@@ -10,7 +10,7 @@
   "terminal.integrated.confirmOnExit": "hasChildProcesses",
   "terminal.integrated.cursorBlinking": true,
   "explorer.confirmDelete": false,
-  "editor.fontFamily": "'FiraMono Nerd Font Mono', 'Font Awesome 6 Free', 'monospace', monospace,,",
+  "editor.fontFamily": "'DejaVuSansM Nerd Font Mono', 'monospace', monospace",
   "css.lint.unknownAtRules": "ignore",
   "scss.lint.unknownAtRules": "ignore",
   "editor.linkedEditing": true,
@@ -41,7 +41,6 @@
     "**/templates/**/*": "django-txt",
     "**/requirements{/**,*}.{txt,in}": "pip-requirements"
   },
-  "refactai.apiKey": "x5tZm4ga9aKjc4f31GJ9caMR",
   "files.autoSave": "off",
   "html.format.templating": true,
   "[django-html]": {
@@ -121,5 +120,9 @@
   "terminal.integrated.fontFamily": "FiraMono Nerd Font Mono",
   "debug.console.fontSize": 16,
   "terminal.integrated.fontSize": 16,
-  "chat.editor.fontSize": 16
+  "chat.editor.fontSize": 16,
+  "refactai.telemetryCodeSnippets": true,
+  "refactai.apiKey": "x5tZm4ga9aKjc4f31GJ9caMR",
+  "refactai.addressURL": "Refact",
+  "editor.fontLigatures": false
 }
