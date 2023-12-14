@@ -24,6 +24,7 @@ export NVM_DIR="$HOME/.nvm"
 
 ## Aliases
 alias ls="eza -lh"
+alias cat="bat -P --theme='Solarized (light)'"
 alias sudo="sudo "
 #alias pacdiff="DIFFPROG=delta pacdiff"
 #alias arch-rankmirrors="sudo reflector --protocol https --verbose --latest 25 --sort rate --save /etc/pacman.d/mirrorlist"
@@ -72,7 +73,6 @@ alias dp="dotfiles push"
 ## Environment Variables
 
 export MICRO_TRUECOLOR=1
-export BAT_THEME=OneHalfLight
 
 # Preview file content using bat (https://github.com/sharkdp/bat)
 export FZF_CTRL_T_OPTS="
