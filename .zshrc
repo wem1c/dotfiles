@@ -69,6 +69,7 @@ alias ds="dotfiles status"
 alias da="dotfiles add"
 alias dc="dotfiles commit -m"
 alias dp="dotfiles push"
+alias ddiff="dotfiles diff"
 
 ## Environment Variables
 
