@@ -13,14 +13,14 @@
 }
 
 window#waybar {
-  color: @foreground;
+  color: @solarized;
   background: @background;
   border: 3px solid @hypr;
   border-radius: 10px;
 }
 
 tooltip {
-  background: @foreground;
+  background: @solarized;
   border: 1.5px solid @background;
 }
 
@@ -54,8 +54,10 @@ tooltip label {
 
 #clock {
   font-family: monospace;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 20px;
+
+  margin: 10px 0px;
 }
 
 #cpu {
@@ -104,7 +106,7 @@ tooltip label {
 }
 
 #network {
-  margin: 5px 0;
+  margin: 10px 0;
 }
 
 /* #tray {
@@ -117,7 +119,7 @@ tooltip label {
 
 #workspaces button {
   border-radius: 10px;
-  background: @foreground;
+  background: @solarized;
   color: @background;
 
   padding: 15px 15px;
