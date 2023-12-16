@@ -6,7 +6,8 @@ ignore-empty-password
 # daemonize
 
 ## APPERANCE
-image=$HOME/.config/swaylock/swaylock.png
+#image=$HOME/.config/swaylock/swaylock.png
+color=#10E1AD
 
 ### INDICATOR
 # no-unlock-indicator
