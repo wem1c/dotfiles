@@ -110,7 +110,7 @@
   },
   "wireplumber": {
     "format": "<span size='x-large'>{icon}</span>",
-    "format-muted": "",
+    "format-muted": "<span size='x-large'></span>",
     "format-icons": [
       "",
       "",
