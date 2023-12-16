@@ -41,7 +41,7 @@ getTargetDirectory() {
 notify() {
   notify-send -t 3000 -a grimshot "$@"
 }
-# 
+ 
 notifyOk() {
   [ "$NOTIFY" = "false" ] && return
 
@@ -49,6 +49,7 @@ notifyOk() {
   MESSAGE=${1:-"OK"}
   notify "$TITLE" "$MESSAGE"
 }
+
 notifyError() {
   if [ $NOTIFY = "true" ]; then
     TITLE=${2:-"Screenshot"}
@@ -131,15 +132,16 @@ elif [ "$SUBJECT" = "screen" ] ; then
   WHAT="Screen"
 elif [ "$SUBJECT" = "output" ] ; then
   GEOM=""
-  OUTPUT=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused)' | jq -r '.name')
+#  OUTPUT=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused)' | jq -r '.name')
+  OUTPUT="eDP-1"	# TODO: don't hardcode output
   WHAT="$OUTPUT"
-elif [ "$SUBJECT" = "window" ] ; then
-  GEOM=$(swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp)
-  # Check if user exited slurp without selecting the area
-  if [ -z "$GEOM" ]; then
-   exit 1
-  fi
-  WHAT="Window"
+#elif [ "$SUBJECT" = "window" ] ; then
+#  GEOM=$(swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp)
+#  # Check if user exited slurp without selecting the area
+#  if [ -z "$GEOM" ]; then
+#   exit 1
+#  fi
+#  WHAT="Window"
 else
   die "Unknown subject to take a screen shot from" "$SUBJECT"
 fi
