@@ -124,5 +124,8 @@
   "refactai.telemetryCodeSnippets": true,
   "refactai.apiKey": "x5tZm4ga9aKjc4f31GJ9caMR",
   "refactai.addressURL": "Refact",
-  "editor.fontLigatures": false
+  "editor.fontLigatures": false,
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  }
 }
