@@ -16,7 +16,7 @@
   "Tailwind React Arrow Function Component Export": {
     "prefix": "trafce",
     "body": [
-      "// Tools",
+      "// Utils",
       "import clsx from \"clsx\";",
       "",
       "/**",
@@ -24,15 +24,13 @@
       " *",
       " * @param {String} [className] - Additional Tailwind classes.",
       " */",
-      "const ${1:$TM_FILENAME_BASE} = ({ className }) => {",
+      "export const ${1:$TM_FILENAME_BASE} = ({ className }) => {",
       "  return (",
       "    <${2:div} id=\"${3:id}\" className={clsx(\"\", className)}>",
       "      ${1:$TM_FILENAME_BASE}",
       "    </${2:div}>",
       "  );",
       "};",
-      "",
-      "export default ${1:$TM_FILENAME_BASE};",
       ""
     ],
     "description": "Tailwind React Arrow Function Component Export"

@@ -1,4 +1,5 @@
 {
+  "window.titleBarStyle": "custom",
   "workbench.colorTheme": "Better Solarized Light",
   "workbench.colorCustomizations": {
     "editor.selectionBackground": "#93a1a1a1"
@@ -52,7 +53,9 @@
     }
   },
   "emmet.includeLanguages": {
-    "django-html": "html"
+    "django-html": "html",
+    "njk": "html",
+    "nunjucks": "html"
   },
   "editor.minimap.enabled": false,
   "[lua]": {
@@ -68,7 +71,7 @@
   "workbench.iconTheme": "bearded-icons",
   "css.enabledLanguages": ["html", "nunjucks"],
   "[njk]": {
-    "editor.defaultFormatter": "eseom.nunjucks-template"
+    "editor.defaultFormatter": "monosans.djlint"
   },
   "tailwindCSS.experimental.classRegex": [
     ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
@@ -127,5 +130,22 @@
   "editor.fontLigatures": false,
   "[svg]": {
     "editor.defaultFormatter": "jock.svg"
-  }
+  },
+  "[php]": {
+    "editor.defaultFormatter": "higoka.php-cs-fixer"
+  },
+  "todo-tree.general.statusBar": "total",
+  "todo-tree.highlights.useColourScheme": true,
+  "todo-tree.highlights.foregroundColourScheme": [
+    "red",
+    "orange",
+    "yellow",
+    "green",
+    "blue",
+    "indigo",
+    "violet"
+  ],
+  "todo-tree.highlights.backgroundColourScheme": [],
+  "todo-tree.tree.showCountsInTree": true,
+  "nunjucksTemplate.preserveEmptyLine": 1
 }
