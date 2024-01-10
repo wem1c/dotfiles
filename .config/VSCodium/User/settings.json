@@ -147,5 +147,10 @@
   ],
   "todo-tree.highlights.backgroundColourScheme": [],
   "todo-tree.tree.showCountsInTree": true,
-  "nunjucksTemplate.preserveEmptyLine": 1
+  "nunjucksTemplate.preserveEmptyLine": 1,
+  "djlint.closeVoidTags": true,
+  "djlint.formatCss": true,
+  "djlint.formatJs": true,
+  "djlint.formatAttributeTemplateTags": true,
+  "djlint.preserveBlankLines": true
 }
