@@ -54,6 +54,7 @@
   },
   "emmet.includeLanguages": {
     "django-html": "html",
+    "nj": "html",
     "njk": "html",
     "nunjucks": "html"
   },
@@ -69,7 +70,7 @@
   },
   "typescript.updateImportsOnFileMove.enabled": "always",
   "workbench.iconTheme": "bearded-icons",
-  "css.enabledLanguages": ["html", "nunjucks"],
+  "css.enabledLanguages": ["html", "nunjucks", "njk"],
   "[njk]": {
     "editor.defaultFormatter": "monosans.djlint"
   },
