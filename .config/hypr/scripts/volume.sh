@@ -18,7 +18,7 @@ get_volume() {
 #   None
 #######################################
 notify_user() {
-	notify-send -h string:x-canonical-private-synchronous:sys-notify -u low "$(get_volume) %"
+	notify-send -h string:x-canonical-private-synchronous:sys-notify -t 2500 -u low "$(get_volume) %"
 }
 
 #######################################
