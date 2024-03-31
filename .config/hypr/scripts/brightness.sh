@@ -20,7 +20,7 @@ get_brightness() {
 #   None
 #######################################
 notify_user() {
-	notify-send -u low -t 2500 -i $ICON_INFO -e "Brightness: $(get_brightness)"
+	notify-send -u low -t 2500 -i $ICON_INFO -h string:x-canonical-private-synchronous:sys-notify -e "Brightness: $(get_brightness)"
 }
 
 #######################################
