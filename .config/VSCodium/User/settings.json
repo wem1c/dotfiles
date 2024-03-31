@@ -30,7 +30,6 @@
   "[ignore]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
-  "editor.fontSize": 16,
   "[python]": {
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.defaultFormatter": "ms-python.black-formatter",
@@ -122,9 +121,9 @@
   "editor.insertSpaces": false,
   "importCost.fontStyle": "oblique",
   "terminal.integrated.fontFamily": "FiraMono Nerd Font Mono",
-  "debug.console.fontSize": 16,
-  "terminal.integrated.fontSize": 16,
-  "chat.editor.fontSize": 16,
+  "debug.console.fontSize": 15,
+  "terminal.integrated.fontSize": 15,
+  "chat.editor.fontSize": 15,
   "refactai.telemetryCodeSnippets": true,
   "refactai.apiKey": "x5tZm4ga9aKjc4f31GJ9caMR",
   "refactai.addressURL": "Refact",
@@ -153,5 +152,7 @@
   "djlint.formatCss": true,
   "djlint.formatJs": true,
   "djlint.formatAttributeTemplateTags": true,
-  "djlint.preserveBlankLines": true
+  "djlint.preserveBlankLines": true,
+  "window.zoomLevel": 0.5,
+  "editor.fontSize": 15
 }
