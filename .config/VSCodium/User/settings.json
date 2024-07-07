@@ -6,6 +6,7 @@
   },
   "security.workspace.trust.untrustedFiles": "open",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.foldingStrategy": "indentation",
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "terminal.integrated.confirmOnExit": "hasChildProcesses",
@@ -32,11 +33,12 @@
   },
   "[python]": {
     "diffEditor.ignoreTrimWhitespace": false,
-    "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ms-python.black-formatter"
   },
   "files.associations": {
     "**/*.html": "html",
+    "**/*.njk": "html",
     "**/templates/**/*.html": "django-html",
     "**/templates/**/*": "django-txt",
     "**/requirements{/**,*}.{txt,in}": "pip-requirements"
@@ -53,26 +55,23 @@
   },
   "emmet.includeLanguages": {
     "django-html": "html",
-    "nj": "html",
-    "njk": "html",
-    "nunjucks": "html"
+    "md": "html",
+    "njk": "html"
   },
-  "editor.minimap.enabled": false,
+  "emmet.syntaxProfiles": {
+    "md": "html",
+    "njk": "html"
+  },
   "[lua]": {
     "editor.defaultFormatter": "sumneko.lua"
   },
   "git.enableSmartCommit": true,
   "sqlite.setupDatabase": {},
-  "redhat.telemetry.enabled": false,
   "[properties]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "typescript.updateImportsOnFileMove.enabled": "always",
   "workbench.iconTheme": "bearded-icons",
-  "css.enabledLanguages": ["html", "nunjucks", "njk"],
-  "[njk]": {
-    "editor.defaultFormatter": "monosans.djlint"
-  },
   "tailwindCSS.experimental.classRegex": [
     ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
   ],
@@ -128,12 +127,6 @@
   "refactai.apiKey": "x5tZm4ga9aKjc4f31GJ9caMR",
   "refactai.addressURL": "Refact",
   "editor.fontLigatures": false,
-  "[svg]": {
-    "editor.defaultFormatter": "jock.svg"
-  },
-  "[php]": {
-    "editor.defaultFormatter": "higoka.php-cs-fixer"
-  },
   "todo-tree.general.statusBar": "total",
   "todo-tree.highlights.useColourScheme": true,
   "todo-tree.highlights.foregroundColourScheme": [
@@ -147,12 +140,13 @@
   ],
   "todo-tree.highlights.backgroundColourScheme": [],
   "todo-tree.tree.showCountsInTree": true,
-  "nunjucksTemplate.preserveEmptyLine": 1,
-  "djlint.closeVoidTags": true,
-  "djlint.formatCss": true,
-  "djlint.formatJs": true,
-  "djlint.formatAttributeTemplateTags": true,
-  "djlint.preserveBlankLines": true,
   "window.zoomLevel": 0.5,
-  "editor.fontSize": 15
+  "editor.fontSize": 15,
+  "todo-tree.regex.regex": "(--|//|#|<!--|;|/\\*|^|^[ \\t]*(-|\\d+.))\\s*($TAGS)",
+  "editor.wordWrap": "on",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "redhat.telemetry.enabled": false,
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  }
 }
