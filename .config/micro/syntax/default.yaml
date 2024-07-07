@@ -1,0 +1,7 @@
+filetype: unknown
+
+detect:
+    filename: ""
+
+rules:
+    - comment: "(^|\\s)#.*$"
